@@ -1,56 +1,76 @@
+<?php echo "PHP is working ✅"; ?>
 <?php
-require __DIR__ . '/vendor/autoload.php';
 
-// Set up Google Client
-putenv('GOOGLE_APPLICATION_CREDENTIALS=' . __DIR__ . '/credentials.json');
-$client = new Google_Client();
-$client->useApplicationDefaultCredentials();
-$client->setScopes([Google_Service_Sheets::SPREADSHEETS]);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-$service = new Google_Service_Sheets($client);
+// ---- Database credentials ----
+$host = "localhost";          
+$dbname = "hydro_welding_db"; 
+$username = "root";           
+$password = "";           
 
-// Replace with your actual spreadsheet ID (from the URL)
-$spreadsheetId = "1ZjyappvYfrDfUh7mFslaH80E7_NlHgEax040TLxSglw";
-$range = "Sheet1!A:F"; // Assuming columns: Timestamp, Name, Email, Phone, Company, Message
+// ---- Connect to database (PDO for security) ----
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("❌ Database connection failed: " . $e->getMessage());
+}
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name    = htmlspecialchars(trim($_POST["name"]));
-    $email   = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-    $phone   = htmlspecialchars(trim($_POST["phone"]));
-    $company = htmlspecialchars(trim($_POST["company"]));
-    $message = htmlspecialchars(trim($_POST["message"]));
+// ---- Only run when form is submitted via POST ----
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // ---- Capture and sanitize input ----
+    $full_name = trim($_POST['full_name'] ?? '');
+    $email     = trim($_POST['email'] ?? '');
+    $phone     = trim($_POST['phone'] ?? '');
+    $company   = trim($_POST['company'] ?? '');
+    $message   = trim($_POST['message'] ?? '');
 
-    if (empty($name) || !filter_var($email, FILTER_VALIDATE_EMAIL) || empty($phone)) {
-        die("❌ Invalid form input.");
+    // ---- Validate required fields ----
+    if (empty($full_name) || empty($email) || empty($phone) || empty($company)) {
+        echo "<script>alert('Please fill in all required fields.'); window.history.back();</script>";
+        exit;
     }
 
-    if (!file_exists(__DIR__ . '/credentials.json')) {
-       die("❌ Missing credentials.json file for Google API.");
+    // ---- Validate email format ----
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "<script>alert('Invalid email address format.'); window.history.back();</script>";
+        exit;
     }
 
-    // Row data
-    $values = [
-        [date("Y-m-d H:i:s"), $name, $email, $phone, $company, $message]
-    ];
-
-    $body = new Google_Service_Sheets_ValueRange([
-        'values' => $values
-    ]);
-
-    $params = [
-        'valueInputOption' => 'RAW'
-    ];
-
+    // ---- Insert data into the database ----
     try {
-        $service->spreadsheets_values->append(
-            $spreadsheetId,
-            $range,
-            $body,
-            $params
-        );
-        echo json_encode(["status" => "success", "message" => "Thank you, $name! You’ve been added to the waiting list."]);
-    } catch (Exception $e) {
-        echo "❌ Error: " . $e->getMessage();
+        $stmt = $pdo->prepare("
+            INSERT INTO waitlist_submissions (full_name, email, phone, company, message)
+            VALUES (:full_name, :email, :phone, :company, :message)
+        ");
+        $stmt->execute([
+            ':full_name' => $full_name,
+            ':email'     => $email,
+            ':phone'     => $phone,
+            ':company'   => $company,
+            ':message'   => $message
+        ]);
+
+        // ---- Success: show confirmation and redirect ----
+        echo "<script>
+                alert('Thank you, $full_name! Your submission has been received successfully.');
+                window.location.href = 'contact.html';
+              </script>";
+    } catch (PDOException $e) {
+        // ---- Handle duplicate or database errors ----
+        if ($e->getCode() == 23000) {
+            echo "<script>alert('This email has already been submitted.'); window.history.back();</script>";
+        } else {
+            echo "<script>alert('Database error: " . addslashes($e->getMessage()) . "'); window.history.back();</script>";
+        }
     }
+} else {
+    // ---- Block direct access ----
+    echo "Invalid request. Please submit the form correctly.";
 }
 ?>
+
+
+

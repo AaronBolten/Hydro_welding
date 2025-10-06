@@ -57,3 +57,12 @@
   </footer>
 </body>
 </html>
+
+<script>
+document.addEventListener('keydown', function(e) {
+  // Press Ctrl + Shift + A to go to admin login
+  if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+    window.location.href = 'admin/index.php';
+  }
+});
+</script>
