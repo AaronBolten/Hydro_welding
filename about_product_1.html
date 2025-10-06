@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Product - Hydro Power Welding Machine</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style1.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about_product_1.html">About Product</a></li>
+      <li><a href="specs.html">Specifications</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Banner -->
+  <section class="about-hero">
+    <h1>Hydro Power Welding Machine</h1>
+    <p>Built for Efficiency. Designed for the Future.</p>
+    <a href="contact.html" class="cta-btn"><i class="fa fa-users"></i> Join the Waiting List</a>
+  </section>
+
+ <!-- Detailed Product Description -->
+  <section class="about-product">
+    <h2>About Our Product</h2>
+    <p>
+      The <strong>Hydro Power Welding Machine</strong> is a functional prototype developed by 
+      <strong>DK Services Company Ltd</strong>, utilizing innovative hydro-power technology 
+      to redefine energy efficiency in welding. 
+    </p>
+    <p>
+      Designed for <strong>reliability</strong> and <strong>performance</strong>, it optimizes 
+      power usage while maintaining a stable arc—making it ideal for diverse industrial applications. 
+      Whether it’s welding <strong>steel</strong>, <strong>aluminum</strong>, or other alloys, 
+      the compact design is engineered to handle both <em>heavy-duty tasks</em> and 
+      <em>precise, small-scale jobs</em>.
+    </p>
+    <p>
+      While still in its prototype stage, the machine already demonstrates 
+      <strong>consistent results</strong>. With ongoing refinements in power regulation 
+      and cooling, this welding innovation offers a glimpse into the 
+      <strong>future of affordable, energy-efficient welding</strong>.
+    </p>
+  </section>
+
+
+  <!-- Value Proposition -->
+  <section class="value-prop">
+    <div class="features">
+      <div class="feature-card">
+        <strong>⚡ Energy Efficient</strong>
+        <p>Save power and reduce costs with innovative hydro-power technology.</p>
+      </div>
+      <div class="feature-card">
+        <strong>🔧 Reliable Performance</strong>
+        <p>Stable arc and multi-metal support for both heavy-duty and precision jobs.</p>
+      </div>
+      <div class="feature-card">
+        <strong>🌍 Eco-Friendly</strong>
+        <p>Uses water and salt for minimal carbon footprint and maximum sustainability.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Key Features (dynamic cards reused) -->
+  <section>
+    <h2>Key Features</h2>
+    <div class="features">
+      <div class="feature-card">
+        <strong>Hydro-Power Tech</strong>
+        <p>Water-based system for energy efficiency.</p>
+      </div>
+      <div class="feature-card">
+        <strong>Material Flexibility</strong>
+        <p>Works with steel, aluminum, and alloys.</p>
+      </div>
+      <div class="feature-card">
+        <strong>Portable Design</strong>
+        <p>Lightweight (7kg), easy to transport.</p>
+      </div>
+      <div class="feature-card">
+        <strong>Stable Arc</strong>
+        <p>Consistent welds with ongoing refinements.</p>
+      </div>
+      <div class="feature-card">
+        <strong>User-Friendly</strong>
+        <p>Simple controls for precise welding adjustments.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Customer Benefits -->
+  <section class="benefits">
+    <h2>What This Means for You</h2>
+    <div class="features">
+      <div class="feature-card">
+        <strong>Lower Costs</strong>
+        <p>Cut down on energy bills while increasing output.</p>
+      </div>
+      <div class="feature-card">
+        <strong>Work Anywhere</strong>
+        <p>Portable, compact design suited for workshops and construction sites.</p>
+      </div>
+      <div class="feature-card">
+        <strong>Future-Proof</strong>
+        <p>Prototype built with scalable, eco-friendly technology.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+<section class="testimonials">
+  <h2>What Our Early Testers Say</h2>
+  <div class="testimonial-carousel">
+    <div class="testimonial-card active">
+      <p>“This machine cut our welding energy costs by nearly 30%. A game-changer!”</p>
+      <strong>- MetalWorks Ltd</strong>
+    </div>
+    <div class="testimonial-card">
+      <p>“Compact and portable. Perfect for field jobs where power access is limited.”</p>
+      <strong>- Field Engineer, Kigali</strong>
+    </div>
+    <div class="testimonial-card">
+      <p>“Reliable arc stability and eco-friendly design. We’re excited for full rollout.”</p>
+      <strong>- GreenTech Industries</strong>
+    </div>
+  </div>
+
+  <!-- Carousel Controls -->
+  <button class="testimonial-prev"><i class="fa fa-chevron-left"></i></button>
+  <button class="testimonial-next"><i class="fa fa-chevron-right"></i></button>
+
+  <!-- Carousel Indicators -->
+  <div class="testimonial-dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</section>
+
+
+  <!-- Waiting List Section -->
+  <section class="waiting-list">
+    <h2>Demand is Growing</h2>
+    <p>Already on the waiting list:</p>
+    <div id="waiting-count">0</div>
+    <a href="contact.html" class="cta-btn"><i class="fa fa-envelope"></i> Reserve Your Spot</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 DK Services Company Ltd.</p>
+  </footer>
+
+  <script>
+    // Animate waiting list counter
+    document.addEventListener("DOMContentLoaded", () => {
+      const counter = document.getElementById("waiting-count");
+      let target = 527; // Replace with real number if dynamic
+      let count = 0;
+      let speed = 20;
+      let interval = setInterval(() => {
+        count++;
+        counter.textContent = count.toLocaleString();
+        if (count >= target) clearInterval(interval);
+      }, speed);
+    });
+  </script>
+
+  <script>
+  // Animate waiting list counter
+  document.addEventListener("DOMContentLoaded", () => {
+    const counter = document.getElementById("waiting-count");
+    let target = 527; // Replace with real number if dynamic
+    let count = 0;
+    let speed = 20;
+    let interval = setInterval(() => {
+      count++;
+      counter.textContent = count.toLocaleString();
+      if (count >= target) clearInterval(interval);
+    }, speed);
+
+    // Testimonials carousel
+    const testimonials = document.querySelectorAll(".testimonial-card");
+    let currentIndex = 0;
+
+    function showTestimonial(index) {
+      testimonials.forEach((t, i) => {
+        t.classList.toggle("active", i === index);
+      });
+    }
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % testimonials.length;
+      showTestimonial(currentIndex);
+    }, 4000); // change every 4s
+  });
+</script>
+
+</body>
+</html>

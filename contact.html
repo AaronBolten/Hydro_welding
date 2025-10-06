@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Product - Hydro Power Welding Machine</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about_product_1.html">About Product</a></li>
+      <li><a href="specs.html">Specifications</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <section class="waitlist-form">
+  <h2>Join the Waiting List</h2>
+  <p>Be among the first to access the Hydro Power Welding Machine. Fill out the form below to reserve your spot.</p>
+
+  <form id="waitlistForm" action="send_waitlist.php" method="POST">
+    <label>Full Name</label>
+    <input type="text" name="name" required>
+
+    <label>Email Address</label>
+    <input type="email" name="email" required>
+
+    <label>Phone Number</label>
+    <input type="text" name="phone" required>
+
+    <label>Company / Organization</label>
+    <input type="text" name="company">
+
+    <label>Message (Optional)</label>
+    <textarea name="message"></textarea>
+
+    <button type="submit">Join the Waiting List</button>
+  </form>
+
+  <div id="response"></div>
+</section>
+
+
+
+  <footer>
+    <p>&copy; 2025 DK Services Company Ltd.</p>
+  </footer>
+</body>
+</html>

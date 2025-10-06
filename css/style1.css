@@ -1,0 +1,207 @@
+/* Hero Banner */
+.about-hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('../assets/about_bg.jpg') no-repeat center center/cover;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.about-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.about-hero p {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #00bcd4;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.cta-btn:hover {
+    background: #0097a7;
+}
+
+/* Value Proposition Section */
+.value-prop {
+    margin: 40px auto;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.value-prop .features {
+    margin-top: 20px;
+}
+
+/* About Product Section */
+.about-product {
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    backdrop-filter: blur(3px);
+}
+
+.about-product h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #00bcd4;
+}
+
+.about-product p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #ddd;
+    line-height: 1.7;
+}
+
+/* Benefits Section */
+.benefits {
+    max-width: 1000px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.benefits h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #00bcd4;
+}
+
+.benefits .features {
+    margin-top: 20px;
+}
+
+/* Testimonials */
+.testimonials {
+    max-width: 700px;
+    margin: 60px auto;
+    text-align: center;
+    position: relative;
+}
+
+.testimonials h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #00bcd4;
+}
+
+.testimonial-carousel {
+    position: relative;
+    overflow: hidden;
+    min-height: 160px;
+}
+
+.testimonial-card {
+    display: none;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 20px;
+    border-radius: 8px;
+    font-style: italic;
+    color: #fff;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.testimonial-card strong {
+    display: block;
+    margin-top: 10px;
+    font-style: normal;
+    color: #fff;
+}
+
+.testimonial-card.active {
+    display: block;
+}
+
+/* Carousel buttons */
+.testimonial-prev, .testimonial-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+    z-index: 10;
+}
+
+.testimonial-prev:hover, .testimonial-next:hover {
+    background: rgba(0,0,0,0.7);
+}
+
+.testimonial-prev {
+    left: -40px;
+}
+.testimonial-next {
+    right: -40px;
+}
+
+/* Dots */
+.testimonial-dots {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.testimonial-dots .dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.testimonial-dots .dot.active {
+    background: #00bcd4;
+}
+
+
+/* Waiting List Section */
+.waiting-list {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin: 40px auto;
+    max-width: 800px;
+    backdrop-filter: blur(3px);
+}
+
+.waiting-list h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #00bcd4;
+}
+
+.waiting-list p {
+    font-size: 1.2rem;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+#waiting-count {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 15px #00bcd4, 0 0 30px #0097a7;
+    margin-bottom: 20px;
+}

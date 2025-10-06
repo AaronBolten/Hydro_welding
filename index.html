@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hydro Power Welding Machine</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about_product_1.html">About Product</a></li>
+      <li><a href="specs.html">Specifications</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <header>
+  <h1 class="header-h1">Hydro Power Welding <span>Machine</span></h1>
+  <p class="header-p">Energy-Efficient Welding Innovation by DK Services Company Ltd.</p>
+  
+  <div class="header-buttons">
+    <a href="specs.html"><i class="fa fa-cogs"></i> Explore Specifications</a>
+    <a href="contact.html"><i class="fa fa-users"></i> Join the waiting list</a>
+  </div>
+</header>
+
+  <!-- Waiting List Section -->
+<section class="waiting-list">
+  <h2>Join the Movement</h2>
+  <p>Already on the waiting list:</p>
+  <div id="waiting-count">0</div>
+</section>
+
+<script>
+  // Animate counter
+  document.addEventListener("DOMContentLoaded", () => {
+    const counter = document.getElementById("waiting-count");
+    let target = 527; // 👈 Replace with actual number of people waiting
+    let count = 0;
+    let speed = 20; // smaller = faster
+
+    let interval = setInterval(() => {
+      count++;
+      counter.textContent = count.toLocaleString();
+      if (count >= target) clearInterval(interval);
+    }, speed);
+  });
+</script>
+
+
+  <footer>
+    <p>&copy; 2025 DK Services Company Ltd.</p>
+  </footer>
+</body>
+</html>
